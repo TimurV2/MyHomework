@@ -123,7 +123,7 @@ class GameOfLife:
         """
         x, y = cell
         cells = []
-        if ((x >= 1) and (x < game.cell_height-1)) and ((y >= 1) and (y < game.cell_width-1)):
+        if ((x >= 1) and (x < self.cell_height-1)) and ((y >= 1) and (y < self.cell_width-1)):
             for i in range(x-1, x+2):
                 for j in range(y-1, y+2):
                         cells.append(self.grid[i][j])
@@ -134,20 +134,20 @@ class GameOfLife:
                     cells.append(self.grid[x][y+1])
                     cells.append(self.grid[x+1][y])
                     cells.append(self.grid[x+1][y+1])
-                if y == game.cell_width - 1:
+                if y == self.cell_width - 1:
                     cells.append(self.grid[x][y-1])
                     cells.append(self.grid[x+1][y-1])
                     cells.append(self.grid[x+1][y])
-            elif x == game.cell_height - 1:
+            elif x == self.cell_height - 1:
                 if y == 0:
                     cells.append(self.grid[x-1][y])
                     cells.append(self.grid[x-1][y+1])
                     cells.append(self.grid[x][y+1])
-                if y == game.cell_width - 1:
+                if y == self.cell_width - 1:
                     cells.append(self.grid[x-1][y-1])
                     cells.append(self.grid[x-1][y])
                     cells.append(self.grid[x][y-1])
-        if ((x == 0) or (x == game.cell_height-1)) and ((y >= 1) and (y < game.cell_width-1)):
+        if ((x == 0) or (x == self.cell_height-1)) and ((y >= 1) and (y < self.cell_width-1)):
             if x == 0:
                 for i in range(x, x+2):
                     for j in range(y-1, y+2):
@@ -158,7 +158,7 @@ class GameOfLife:
                     for j in range(y-1, y+2):
                         cells.append(self.grid[i][j])
                 cells.pop(4)
-        if ((y == 0) or (y == game.cell_width-1)) and ((x >= 1) and (x < game.cell_height-1)):
+        if ((y == 0) or (y == self.cell_width-1)) and ((x >= 1) and (x < self.cell_height-1)):
             if y == 0:
                 for i in range(x-1, x+2):
                     for j in range(y, y+2):
